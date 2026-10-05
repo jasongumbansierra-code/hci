@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Member User ID Registration - Portal</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="portal-wrapper">
+        <!-- Top Institutional Brand Bar -->
+        <header class="institutional-header">
+            <div class="brand-container">
+                <div class="brand-badge">SSS</div>
+                <div class="brand-text">
+                    <h1>Republic of the Philippines</h1>
+                    <p>Social Security System Online Services</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Registration Card -->
+        <main class="registration-card">
+            <div class="card-header">
+                <h2>Online Member User ID Registration</h2>
+                <p>Please supply the following information as reported to the Social Security System.</p>
+                <div class="required-legend"><span class="req-star">*</span> Indicates required field</div>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                
+                <!-- Section 1: Membership Verification -->
+                <div class="form-section">
+                    <h3 class="section-title">Membership Verification</h3>
+                    
+                    <div class="form-control-group">
+                        <label for="crnNumber"><span class="req-star">*</span> CRN / SS Number</label>
+                        <input type="text" id="crnNumber" name="crnNumber" placeholder="e.g., 03-1234567-8" autocomplete="off" required>
+                        <span class="error-feedback" id="crnError"></span>
+                    </div>
+                </div>
+
+                <!-- Section 2: Account Access Credentials -->
+                <div class="form-section">
+                    <h3 class="section-title">Account Credentials</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-control-group">
+                            <label for="email"><span class="req-star">*</span> Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="name@domain.com" required>
+                            <small class="helper-note">Note: If your email is other than yahoo.com, kindly inform your network administrator not to block mail from sss.gov.ph.</small>
+                            <span class="error-feedback" id="emailError"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label for="confirmEmail"><span class="req-star">*</span> Confirm Email Address</label>
+                            <input type="email" id="confirmEmail" name="confirmEmail" placeholder="Re-enter email address" required>
+                            <span class="error-feedback" id="confirmEmailError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-control-group">
+                            <label for="userId"><span class="req-star">*</span> Preferred User ID</label>
+                            <input type="text" id="userId" name="userId" placeholder="e.g., Juan_Cruz1234" required>
+                            <small class="helper-note">Length must be 8-20 characters. First character must be alphabetic. No special characters except underscore (_).</small>
+                            <span class="error-feedback" id="userIdError"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label for="confirmUserId"><span class="req-star">*</span> Confirm Preferred User ID</label>
+                            <input type="text" id="confirmUserId" name="confirmUserId" placeholder="Re-enter User ID" required>
+                            <span class="error-feedback" id="confirmUserIdError"></span>
+                        </div>
+                    </div>
+
+                    <div class="security-banner">
+                        <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span><strong>Restricted Characters:</strong> The following characters are not allowed: <code># % () \ - ' * || && */</code></span>
+                    </div>
+                </div>
+
+                <!-- Section 3: Personal Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Personal Information</h3>
+                    
+                    <div class="form-grid three-col">
+                        <div class="form-control-group">
+                            <label for="lastName"><span class="req-star">*</span> Surname / Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <span class="error-feedback" id="lastNameError"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label for="givenName"><span class="req-star">*</span> Given Name</label>
+                            <input type="text" id="givenName" name="givenName" required>
+                            <span class="error-feedback" id="givenNameError"></span>
+                        </div>
+                        <div class="form-control-group">
+                            <label for="middleName">Middle Name</label>
+                            <input type="text" id="middleName" name="middleName">
+                        </div>
+                    </div>
+
+                    <div class="form-control-group max-width-half">
+                        <label for="dob"><span class="req-star">*</span> Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                        <span class="error-feedback" id="dobError"></span>
+                    </div>
+                </div>
+
+                <!-- Section 4: Mailing Address -->
+                <div class="form-section">
+                    <h3 class="section-title">Mailing Address (Philippine Address)</h3>
+                    
+                    <div class="form-control-group">
+                        <label for="roomUnit">Room / Floor / Unit No. & Building Name</label>
+                        <input type="text" id="roomUnit" name="roomUnit">
+                    </div>
+
+                    <div class="form-control-group">
+                        <label for="houseBlock">House / Lot & Block No.</label>
+                        <input type="text" id="houseBlock" name="houseBlock">
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-control-group">
+                            <label for="street">Street</label>
+                            <input type="text" id="street" name="street">
+                        </div>
+                        <div class="form-control-group">
+                            <label for="subdivision">Subdivision</label>
+                            <input type="text" id="subdivision" name="subdivision">
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label>Location Classification</label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="locationType" value="Metro Manila" checked>
+                                <span>Metro Manila</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="locationType" value="Province">
+                                <span>Province</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Action Buttons -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    <button type="submit" class="btn btn-primary">Submit Registration</button>
+                </div>
+            </form>
+        </main>
+        
+        <!-- Footer Info -->
+        <footer class="portal-footer">
+            <p>&copy; Social Security System. Secure Online Registration Portal.</p>
+        </footer>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
